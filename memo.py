@@ -1,7 +1,4 @@
-s = "olleh dlrow"
+s = "ajpo@ajl@"
 
-li = s.split(" ")
-print(li)
-
-s_f = s[::-1]
-print(s_f)
+index = s.find("@")
+print(index)
