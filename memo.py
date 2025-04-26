@@ -1,6 +1,7 @@
-li = [1,3,4]
+li = [1,2,3,4,5]
 
-print(li)
-li.append(2)
-li.pop()
-print(li)
+def test(a, li):
+    print(a,li)
+    print(li[1])
+
+test(li[0], li[0+1::])
