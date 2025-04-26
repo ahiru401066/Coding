@@ -1,4 +1,6 @@
-s = "ajpo@ajl@"
+li = [1,3,4]
 
-index = s.find("@")
-print(index)
+print(li)
+li.append(2)
+li.pop()
+print(li)

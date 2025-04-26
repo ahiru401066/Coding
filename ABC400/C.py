@@ -1,3 +1,4 @@
+# 全探索（少し工夫あり）
 import math
 
 def main():
