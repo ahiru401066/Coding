@@ -1,22 +1,26 @@
 def main():
-    n, k = map(int, input().split())
+    n,k = map(int, input().split())
     a = list(map(int, input().split()))
+    MAX = 1000_000_000
+    result = -1
+    
+    # binarySearch
+    l = 0; r = MAX
+    while(l <= r):
+        mid = (l+r)//2
+        total = check(mid,a)
+        if(k > total):
+            l = mid + 1
+        elif(k <= total):
+            result = mid
+            r = mid - 1
+    return result
 
-    l = 1
-    r = 10**9
-    while(l < r):
-        m = (l+r)//2
-        ans = check(m,n,k,a)
-        if not ans:
-            l = m + 1
-        else: r = m
-    print(l)
-
-def check(x,n,k,a):
-    sum = 0
-    for i in range(n):
-        sum += x//a[i]
-    return sum >= k
+def check(t,a):
+    total = 0
+    for e in a:
+        total += t//e
+    return total
 
 
-main()
+print(main())
