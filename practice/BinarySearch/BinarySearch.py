@@ -1,3 +1,5 @@
+# ２分探索（値一致　基本）
+
 def main():
     n, x = map(int, input().split())
     a = list(map(int, input().split()))

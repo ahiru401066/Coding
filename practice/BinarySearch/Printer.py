@@ -1,3 +1,5 @@
+# ２分探索（条件を満たす値探索 != 値一致）
+
 def main():
     n,k = map(int, input().split())
     a = list(map(int, input().split()))
