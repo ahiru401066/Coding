@@ -1,28 +1,35 @@
+import sys
+sys.setrecursionlimit(10**7)
+
 def main():
     n, m = map(int, input().split())
     graph = [[] for _ in range(n+1)]
-
     for _ in range(m):
         a, b = map(int, input().split())
         graph[a].append(b)
         graph[b].append(a)
 
-    pos=1; count=0
-    ans = None
-    ans = dfs(1,count,graph,n)
-    if ans: print("Yes")
-    else: print("No")
+    if m != n:
+        print("No")
+        return
+    
+    for i in range(1, n+1):
+        if len(graph[i]) != 2:
+            print("No")
+            return
+    
+    visited = [False] * (n+1)
+    def dfs(v):
+        visited[v] = True
+        for nv in graph[v]:
+            if not visited[nv]:
+                dfs(nv)
 
-def dfs(pos,count,graph,n):
-    if pos == 1 and count == n:
-        return True
-    if count == n: return None
-    for i in graph[pos]:
-        dfs(i,count+1,graph,n)
+    dfs(1)
+
+    if all(visited[1:]):
+        print("Yes")
+    else:
+        print("No")
 
 main()
-
-"""
-無向グラフは辺の出発と到着が等しい、、、
-深さ優先探索を行い視点に戻る、かつ頂点を全て通っているかどうか？
-"""
