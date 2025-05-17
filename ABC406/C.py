@@ -9,15 +9,14 @@ def main():
         elif P[i] < P[i+1] and P[i] < P[i-1]: li[i] = -1
     print(li)
 
-    upFlg = False; downFlg = False
-    l = 0; r = 1; index = 0
-    count = 0
-    while(index < n):
-        if li[index] == -1:
-            l = index + 1
-            r = l + 1
-        if li[index] == 1:
-
+    # upFlg = False; downFlg = False
+    # l = 0; r = 1; index = 0
+    # count = 0
+    # while(index < n):
+    #     if li[index] == -1:
+    #         l = index + 1
+    #         r = l + 1
+    #     if li[index] == 1:
 
 main()
 # 多分O(n)だと思うけど、、
