@@ -1,28 +1,16 @@
 def main():
-    n = int(input())
-    li = list(map(int, input().split()))
+    T = input()
+    U = input()
 
-    indexedScores = [(score, i) for i, score in enumerate(li)]
+    for i in range(len(T)):
+        if(T[i] == U[0] or T[i] == "?"):
+            if check(T[i::],U): return "Yes"
+    return "No"
 
-    indexedScores.sort(reverse=True)
+def check(subT, U):
+    if len(subT) < len(U): return False
+    for i in range(len(U)):
+        if subT[i] != "?" and subT[i] != U[i]: return False
+    return True
 
-    ranks = [0] * n
-    r = 1; i = 0
-
-    while i < n:
-        currentScore = indexedScores[i][0]
-        j = i
-        while j < n and indexedScores[j][0] == currentScore:
-            j += 1
-
-        for k in range(i,j):
-            personIndex = indexedScores[k][1]
-            ranks[personIndex] = r
-        
-    r += (j - i)
-    i = j
-
-    for rank in ranks:
-        print(rank)
-
-main()
+print(main())

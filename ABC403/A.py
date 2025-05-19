@@ -1,10 +1,11 @@
 def main():
-    n = int(input())
-    s = input()
-    t = input()
-    count = 0
-    for i in range(n):
-        if s[i] != t[i]: count += 1
-    return count
+   n = int(input())
+   a = list(map(int, input().split()))
+   ans = 0
+   for i in range(len(a)):
+       if(i % 2 == 0): ans += a[i]
 
-print(main())
+   print(ans)
+    
+
+main()
