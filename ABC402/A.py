@@ -1,10 +1,9 @@
 def main():
-    n = int(input())
     s = input()
-    t = input()
-    count = 0
-    for i in range(n):
-        if s[i] != t[i]: count += 1
-    return count
+    txt = ""
+    for e in s:
+        if e.isupper():
+            txt += e
+    print(txt)
 
-print(main())
+main()
