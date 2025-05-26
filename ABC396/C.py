@@ -2,32 +2,34 @@ def main():
     n,m = map(int,input().split())
     B = list(map(int, input().split()))
     W = list(map(int, input().split()))
-    B = sorted(B)
-    W = sorted(W)
 
-    preTotalB = []; totalB = 0
-    for i in range(len(B)):
-        totalB += B[i]
-        preTotalB.append(totalB)
-
-    preTotalW = []; totalW = 0
+    # Wの累積和を保持
+    W = sorted(W,reverse=True)
+    cSumW = [0]
     for i in range(len(W)):
-        totalW += W[i]
-        preTotalW.append(totalW)
+        cSumW.append(cSumW[i]+W[i])
 
-    print(B)
-    print(preTotalB)
-    print(W)
-    print(preTotalW)
+    # Bの累積和
+    B = sorted(B,reverse=True)
+    cSumB = [0]
+    for i in range(len(B)):
+        cSumB.append(cSumB[i]+B[i])
+    # n個以上玉を入れる時の最大値
+    t = 0
+    for i in range(len(cSumB)-1,0,-1):
+        if i == len(cSumB) - 1: continue
+        t = cSumB[i+1]
+        cSumB[i] = max(cSumB[i],t)
 
-    def binarySearch(l,r):
-        while(l <= r):
-            mid = (l+r)//2
-            if 
+    score = 0
+    for i in range(len(cSumW)):
+        if i > len(cSumB)-1:
+            continue
+        score = max(score,cSumW[i] + cSumB[i])
+    # print(cSumB)
+    # print(cSumW)
+    print(score)
 
 main()
-
-# 全探索
-# 累積和のような考え方？
-# 黒と白の累積和をそれぞれ記録？
-# 累積和+２分探索？
+# データ保持に対して工夫
+# 白の個数が定まったときに黒の個数の候補の中から最大のものを特定できる
