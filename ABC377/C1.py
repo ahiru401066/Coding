@@ -12,3 +12,4 @@ def main():
     print(n*n - len(s))
 
 main()
+#確認
