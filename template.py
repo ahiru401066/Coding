@@ -1,6 +1,6 @@
-def input():
-    return list(map(int, input().split()))
+import sys
 
 def main():
+    # input = sys.stdin.readline
     pass
 main()
