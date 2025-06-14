@@ -8,6 +8,9 @@ def main():
     j = 0; total = 0
     for i in range(M):
         while j <= len(A)-1:
+            if i == M-1 and j == N-1:
+                if B[i] > A[j]: break
+
             if B[i] <= A[j]:
                 total += A[j]
                 j += 1
