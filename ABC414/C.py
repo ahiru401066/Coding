@@ -2,18 +2,41 @@ def main():
     A = int(input())
     N = int(input())
 
-    L = [i for i in range(10)]
-    LL = [l for l in L]
-    flg = True
-    while flg:
-        for l in L:
-            txtBase = str(l)
-            for k in range(1,len(L)):
-                txt = str(k) + txtBase + str(k)
-                if len(txt) > 12:
-                    flg = False
-                    break
-                LL.append(int(txt))
+    L = []
+
+    # 奇数
+    i = 1
+    while True:
+        s = str(i)
+        pal = int(s + s[-2::-1])
+        if pal > N:
+            break
+        L.append(pal)
+        i += 1
+
+    # 偶数
+    i = 1
+    while True:
+        s = str(i)
+        pal = int(s + s[::-1])
+        if pal > N:
+            break
+        L.append(pal)
+        i += 1
+    # print(L)
+    # print(len(L))
+
+    Z = []
+    for l in L:
+        x = l
+        digits = []
+        while x > 0:
+            digits.append(x%A)
+            x //= A
+        if digits == digits[::-1]:
+            Z.append(l)
+    # print(Z)
+    print(sum(Z))
 
         
 
